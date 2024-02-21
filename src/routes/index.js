@@ -35,7 +35,14 @@ const Routes = () => {
                 name='About'
                 component={About}
                 options={{
-                    headerShown: false
+                    headerStyle:{
+                        backgroundColor: '#f5f5f5',
+                        borderBottomWidth: 1,
+                        borderBottomColor: '#4169E1'
+                    },
+                    headerTintColor: '#3B82F6',
+                    headerBackTitleVisible: false,
+                    headerTitle: 'Back'
                 }}
             />
 

@@ -1,5 +1,4 @@
 import { View, Text, TouchableOpacity } from 'react-native';
-import ProductTable from '../../components/ProductTable';
 import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
@@ -7,7 +6,11 @@ const Home = () => {
 
     const handleGetStarted = () => {
         navigation.navigate('Products');
-    };
+    }
+
+    const handleGetAbout = () => {
+        navigation.navigate('About');
+    }
 
     return (
         <View className="flex-1 p-4 mt-14">
@@ -32,6 +35,11 @@ const Home = () => {
                     <Text className="text-lg font-bold mb-2">Advanced Features</Text>
                     <Text className="text-base">Enjoy advanced features for a better product management experience.</Text>
                 </View>
+            </View>
+            <View className="mt-12 justify-center items-center">
+                <TouchableOpacity className="bg-blue-500 rounded-lg py-3 px-6" onPress={handleGetAbout}>
+                    <Text className="text-white font-bold text-lg">About Us</Text>
+                </TouchableOpacity>
             </View>
 
         </View>
