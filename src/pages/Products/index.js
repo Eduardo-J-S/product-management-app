@@ -18,6 +18,11 @@ const Products = () => {
       "name": "Produto 3",
       "brand": "Marca C"
     },
+    {
+      "id": 4,
+      "name": "Produto 4",
+      "brand": "Marca D"
+    },
   ]
   return (
     <View className="flex-1 bg-gray-100 p-4 mt-5">
