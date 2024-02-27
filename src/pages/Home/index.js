@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
     }
 
     return (
-        <View className="flex-1 p-4 mt-14">
+        <ScrollView className="flex-1 p-4 mt-14">
             <View className="mb-6">
                 <Text className="text-2xl font-bold mb-2">Welcome to Our Product Registration App</Text>
                 <Text className="mb-4">A simple and effective solution to manage your products.</Text>
@@ -36,13 +36,13 @@ const Home = () => {
                     <Text className="text-base">Enjoy advanced features for a better product management experience.</Text>
                 </View>
             </View>
-            <View className="mt-12 justify-center items-center">
+            <View className="mt-12 mb-8 justify-center items-center">
                 <TouchableOpacity className="bg-blue-500 rounded-lg py-3 px-6" onPress={handleGetAbout}>
                     <Text className="text-white font-bold text-lg">About Us</Text>
                 </TouchableOpacity>
             </View>
 
-        </View>
+        </ScrollView>
     );
 }
 

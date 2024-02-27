@@ -1,17 +1,54 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState, useContext, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 
-const FormComponent = ({ handleClose }) => {
-    const [id, setId] = useState('');
-    const [name, setName] = useState('');
-    const [brand, setBrand] = useState('');
+import { PerfilContext } from '../../contexts';
+
+const FormComponent = ({ handleClose, id, name, brand, option }) => {
+
+    const { putProduct, postProducts, errorPost, setErrorPost } = useContext(PerfilContext);
+
+    const [idForm, setIdForm] = useState(String(id));
+    const [nameForm, setNameForm] = useState(name);
+    const [brandForm, setBrandForm] = useState(brand);
     const [nameValid, setNameValid] = useState(true); // Inicialmente válido
     const [brandValid, setBrandValid] = useState(true); // Inicialmente válido
-    const [isLoading, setIsLoading] = useState(false); // Para controle de carregamento
 
+    useEffect(() => {
+        if (errorPost.length > 0) {
+            Alert.alert("Error", errorPost);
+        }
+    }, [errorPost]);
+
+    async function updateProduct() {
+        const productId = parseInt(id);
+        putProduct(productId, nameForm, brandForm);
+
+        setTimeout(() => {
+            setErrorPost([]);
+            handleClose()
+        }, 2000);
+    }
 
     function postProduct() {
+        if (nameForm.trim() === '') {
+            setNameValid(false);
+            return;
+        } else {
+            setNameValid(true);
+        }
 
+        if (brandForm.trim() === '') {
+            setBrandValid(false);
+            return;
+        } else {
+            setBrandValid(true);
+        }
+
+        postProducts(nameForm, brandForm);
+        setTimeout(() => {
+            setErrorPost([]);
+            handleClose()
+        }, 2000);
     }
 
     return (
@@ -23,8 +60,8 @@ const FormComponent = ({ handleClose }) => {
                     <TextInput
                         editable={false}
                         placeholder='Product ID'
-                        value={id}
-                        onChangeText={setId}
+                        value={idForm}
+                        onChangeText={text => setIdForm(text)}
                         className="border border-gray-400 rounded p-2"
                     />
                 </View>
@@ -32,34 +69,30 @@ const FormComponent = ({ handleClose }) => {
                     <Text>Name</Text>
                     <TextInput
                         placeholder='Product name'
-                        value={name}
-                        onChangeText={text => {
-                            setName(text);
-                            // Adicione lógica de validação aqui
-                        }}
+                        value={nameForm}
+                        onChangeText={text => {setNameForm(text);}}
                         className={`border ${nameValid ? 'border-green-500' : 'border-red-500'} rounded p-2`}
-                        editable={!isLoading}
                     />
                 </View>
                 <View className="mb-4">
                     <Text>Brand</Text>
                     <TextInput
                         placeholder='Product brand'
-                        value={brand}
-                        onChangeText={text => {
-                            setBrand(text);
-                            // Adicione lógica de validação aqui
-                        }}
+                        value={brandForm}
+                        onChangeText={text => {setBrandForm(text);}}
                         className={`border ${brandValid ? 'border-green-500' : 'border-red-500'} rounded p-2`}
-                        editable={!isLoading}
                     />
                 </View>
                 <View className="flex flex-row justify-between w-full">
                     <TouchableOpacity
-                        onPress={() => postProduct()}
-                        className="bg-blue-500 mb-8 w-1/3 ml-27 py-2 rounded-lg"
+                        onPress={option === 'EDIT' ? () => updateProduct() : () => postProduct()}
+                        className={`mb-8 w-1/3 ml-27 py-2 rounded-lg ${option === 'EDIT' ? 'bg-blue-500' : 'bg-green-500'}`}
                     >
-                        <Text className="text-white text-center font-bold">Post</Text>
+                        {
+                            option === 'EDIT' ?
+                                <Text className="text-white text-center font-bold">Update</Text> :
+                                <Text className="text-white text-center font-bold">Save</Text>
+                        }
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={handleClose}

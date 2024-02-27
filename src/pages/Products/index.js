@@ -1,7 +1,11 @@
+import React, { useContext, useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import ProductTable from '../../components/ProductTable';
+import { PerfilContext } from '../../contexts';
 
 const Products = () => {
+  const { products } = useContext(PerfilContext);
+
   const productsTable = [
     {
       "id": 1,
@@ -27,10 +31,10 @@ const Products = () => {
   return (
     <View className="flex-1 bg-gray-100 p-4 mt-5">
       <View className="mb-6">
-        <Text className="text-2xl font-bold">Lista de Produtos</Text>
+        <Text className="text-2xl font-bold">Product list</Text>
       </View>
       <View className="bg-white rounded-lg p-4">
-        <ProductTable products={productsTable} />
+        <ProductTable productsAll={products} />
       </View>
     </View>
   );
