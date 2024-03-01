@@ -18,10 +18,10 @@ The Products Mobile App is a frontend project developed to interact with the [Pr
 3. **Error Handling**: Error messages are displayed to users in case of any issues, providing a smooth user experience.
 
 ## Installation
-1. Clone the repository: git clone https://github.com/Eduardo-J-S/product-frontend-app.git
-2. Navigate to the project directory: cd product-frontend-app
-3. Install dependencies: npm install
-4. Start the development server: npx expo start
+1. Clone the repository: `git clone https://github.com/Eduardo-J-S/product-frontend-app.git`
+2. Navigate to the project directory: `cd product-frontend-app`
+3. Install dependencies: `npm install`
+4. Start the development server: `npx expo start`
 5. Access the app on your mobile device with Expo Go or on an emulator.
 
 ## Usage
