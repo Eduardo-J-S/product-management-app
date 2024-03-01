@@ -1,7 +1,13 @@
-# Products Mobile App
-The Products Mobile App is a frontend project developed to interact with the [Products API](https://github.com/Eduardo-J-S/product-management-api). It provides a user-friendly interface for managing products, including functionalities for creating, updating, listing, and deleting products. The app is built using React Native and integrates with the Products API to fetch and manipulate product data.
 
-## Technologies Used
+[Read in English](README.en.md)
+
+---
+
+## Aplicação de Produtos App
+
+O aplicativo móvel Products é um projeto frontend desenvolvido para interagir com a [API de Produtos](https://github.com/Eduardo-J-S/product-management-api). Ele fornece uma interface amigável para gerenciar produtos, incluindo funcionalidades para criar, atualizar, listar e excluir produtos. O aplicativo é construído usando React Native e se integra à API de Produtos para buscar e manipular dados de produtos.
+
+### Tecnologias Utilizadas
 - React Native
 - React Navigation
 - Context API
@@ -9,19 +15,20 @@ The Products Mobile App is a frontend project developed to interact with the [Pr
 - Modal
 - Tailwind
 
-## Features
-1. **Product Management**: Users can create, update, list, and delete products through the app.
-2. **Responsive Design**: The app is responsive and optimized for use on devices of various screen sizes.
-3. **Error Handling**: Error messages are displayed to users in case of any issues, providing a smooth user experience.
+### Funcionalidades
+- **Gerenciamento de Produtos:** Usuários podem criar, atualizar, listar e excluir produtos por meio do aplicativo.
+- **Design Responsivo:** O aplicativo é responsivo e otimizado para uso em dispositivos de diferentes tamanhos de tela.
+- **Tratamento de Erros:** Mensagens de erro são exibidas aos usuários em caso de problemas, proporcionando uma experiência suave ao usuário.
 
-## Installation
-1. Clone the repository: git clone https://github.com/Eduardo-J-S/product-frontend-app.git
-2. Navigate to the project directory: cd product-frontend-app
-3. Install dependencies: npm install
-4. Start the development server: npx expo start
-5. Access the app on your mobile device with Expo Go or on an emulator.
 
-## Usage
-- Upon launching the app, users are presented with options to navigate to the Products, New Product, and About screens using the navigation bar.
-- The Products screen allows users to view, edit, add, and delete products from the catalog.
-- Users can navigate to the About screen to learn more about the app, the team behind it, and the technologies used.
+### Instalação
+1. Clone o repositório: `git clone https://github.com/Eduardo-J-S/product-frontend-app.git`
+2. Navegue até o diretório do projeto: `cd product-frontend-app`
+3. Instale as dependências: `npm install`
+4. Inicie o servidor de desenvolvimento: `npx expo start`
+5. Acesse o aplicativo em seu dispositivo móvel com o Expo Go ou em um emulador.
+
+### Uso
+- Ao iniciar o aplicativo, os usuários são apresentados com opções para navegar para as telas de Produtos, Novo Produto e Sobre usando a barra de navegação.
+- A tela de Produtos permite que os usuários visualizem, editem e excluam produtos do catálogo.
+- Os usuários podem navegar para a tela Sobre para obter mais informações sobre o aplicativo, a equipe por trás dele e as tecnologias utilizadas.
